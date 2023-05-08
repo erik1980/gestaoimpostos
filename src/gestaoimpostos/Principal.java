@@ -29,9 +29,12 @@ public class Principal {
 		System.out.println("1.Eliminar um imposto dado o ano e o NIF do contribuinte.");
 
 		System.out.println("2.Atualizar um imposto dado o ano e o NIF do contribuinte.");
-
+		System.out.println();
 		System.out.println("3.Listar os nomes e os NIF das pessoas singulares.");
-
+		for (Contribuinte contribuinte : dgi.obterPessoasSingulares()) {
+			System.out.printf("\tNome: %s\n\tNIF: %s\n", contribuinte.getNome(), contribuinte.getNif());
+			System.out.println();
+		}
 		System.out.println("4.Listar os NIF dos contribuintes e o valor dos impostos aplicados dado o ano.");
 
 		System.out.println("5.Listar os NIF das pessoas coletivas que não pagaram impostos no ano atual.");

@@ -49,6 +49,17 @@ public class DirecaoGeralImpostos {
 		}
 		return false;
 	}
+	//Funcionalidade 1 do Grupo 2.
+	public ArrayList<Contribuinte> obterPessoasSingulares() {
+		ArrayList<Contribuinte> pessoasSingulares = new ArrayList<>();
+		for (Contribuinte contribuinte : contribuintes) {
+			if (contribuinte instanceof PessoaSingular ps) {
+				pessoasSingulares.add(ps);
+
+			}
+		}
+		return pessoasSingulares;
+	}
 	
 	private void populate() {	
 		
