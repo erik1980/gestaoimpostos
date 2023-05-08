@@ -35,10 +35,14 @@ public class Principal {
 			System.out.printf("\tNome: %s\n\tNIF: %s\n", contribuinte.getNome(), contribuinte.getNif());
 			System.out.println();
 		}
+		System.out.println();
 		System.out.println("4.Listar os NIF dos contribuintes e o valor dos impostos aplicados dado o ano.");
-
+		System.out.println();
 		System.out.println("5.Listar os NIF das pessoas coletivas que não pagaram impostos no ano atual.");
-
+		for (PessoaColetiva pc : dgi.obterPessoasColetivasQueNaoPagaramAnoAtual()) {
+			System.out.printf("\tNome: %s\n\tNIF: %s\n",pc.getNome(), pc.getNif());
+			System.out.println();
+		}
 		System.out.println("6.Mostrar o nome e o NIF da pessoa coletiva que mais impostos pagou em um determinado ano");
 
 		System.out.println("7.Mostrar o imposto de um contribuinte em um determinado ano.");

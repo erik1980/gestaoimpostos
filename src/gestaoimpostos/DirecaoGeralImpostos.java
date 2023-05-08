@@ -1,5 +1,6 @@
 package gestaoimpostos;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DirecaoGeralImpostos {
@@ -49,7 +50,7 @@ public class DirecaoGeralImpostos {
 		}
 		return false;
 	}
-	//Funcionalidade 1 do Grupo 2.
+	//Funcionalidade 3 do Grupo 2.
 	public ArrayList<Contribuinte> obterPessoasSingulares() {
 		ArrayList<Contribuinte> pessoasSingulares = new ArrayList<>();
 		for (Contribuinte contribuinte : contribuintes) {
@@ -60,6 +61,27 @@ public class DirecaoGeralImpostos {
 		}
 		return pessoasSingulares;
 	}
+	// Funcionalidade 5 do Grupo 2.
+	private boolean naoPagouAnoAtual(Contribuinte contribuinte) {
+		for (Imposto imposto : impostos) {
+			if (imposto.getAno() == LocalDate.now().getYear()
+					&& imposto.getContribuinte().getNif() == contribuinte.getNif()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	// Funcionalidade 5 do Grupo 2.
+	public ArrayList<PessoaColetiva> obterPessoasColetivasQueNaoPagaramAnoAtual() {
+		ArrayList<PessoaColetiva> pessoasColetivas = new ArrayList<>();
+		for (Contribuinte contribuinte : contribuintes) {
+			if (contribuinte instanceof PessoaColetiva pc && naoPagouAnoAtual(contribuinte)) {
+				pessoasColetivas.add(pc);
+
+			}
+		}
+		return pessoasColetivas;
+	}
 	
 	private void populate() {	
 		
@@ -69,14 +91,14 @@ public class DirecaoGeralImpostos {
 		addImpostoPessoaColetiva(2020, 300000000, 11000000, 138529349);
 		addImpostoPessoaColetiva(2021, 350000000, 14000000, 138529349);
 		addImpostoPessoaColetiva(2022, 370000000, 13000000, 138529349);
-		addImpostoPessoaColetiva(2023, 560000000, 15000000, 138529349);		
+		//addImpostoPessoaColetiva(2023, 560000000, 15000000, 138529349);		
 		addPessoaColetiva("Fenicia",182495623,Atividade.COMERCIO);
 		addImpostoPessoaColetiva(2018, 36000000, 1000000, 182495623);
 		addImpostoPessoaColetiva(2019, 44000000, 3000000, 182495623);
 		addImpostoPessoaColetiva(2020, 57000000, 3000000, 182495623);
 		addImpostoPessoaColetiva(2021, 63000000, 4000000, 182495623);
 		addImpostoPessoaColetiva(2022, 76000000, 4000000, 182495623);
-		addImpostoPessoaColetiva(2023, 88000000, 5000000, 182495623);		
+		//addImpostoPessoaColetiva(2023, 88000000, 5000000, 182495623);		
 		addPessoaColetiva("Calu&Angela",192742749,Atividade.COMERCIO);
 		addImpostoPessoaColetiva(2018, 23000000, 1400000, 192742749);
 		addImpostoPessoaColetiva(2019, 74000000, 2300000, 192742749);
@@ -104,7 +126,7 @@ public class DirecaoGeralImpostos {
 		addImpostoPessoaColetiva(2020, 56300000, 4600000, 162947296);
 		addImpostoPessoaColetiva(2021, 36300000, 2500000, 162947296);
 		addImpostoPessoaColetiva(2022, 63500000, 2300000, 162947296);
-		addImpostoPessoaColetiva(2023, 83600000, 6300000, 162947296);
+		//addImpostoPessoaColetiva(2023, 83600000, 6300000, 162947296);
 		addPessoaColetiva("Cultura de cana-de-açúcar",174379572,Atividade.AGRICULTURA);
 		addImpostoPessoaColetiva(2018, 35300000, 1500000, 174379572);
 		addImpostoPessoaColetiva(2019, 46300000, 3600000, 174379572);
