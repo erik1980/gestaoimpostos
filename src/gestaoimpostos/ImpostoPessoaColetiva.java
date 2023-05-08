@@ -1,15 +1,16 @@
 package gestaoimpostos;
 
-public class ImpostoPessoaColetiva extends Imposto{
+public class ImpostoPessoaColetiva extends Imposto {
 	private float lucroContabilistico;
-	private float despensasDedutiveis;	
+	private float despensasDedutiveis;
 
-	public ImpostoPessoaColetiva(int ano, float lucroContabilistico, float despensasDedutiveis, PessoaColetiva contribuinte) {
+	public ImpostoPessoaColetiva(int ano, float lucroContabilistico, float despensasDedutiveis,
+			PessoaColetiva contribuinte) {
 		super(ano, contribuinte);
 		this.lucroContabilistico = lucroContabilistico;
-		this.despensasDedutiveis = despensasDedutiveis;		
-	}	
-	
+		this.despensasDedutiveis = despensasDedutiveis;
+	}
+
 	public float getLucroContabilistico() {
 		return lucroContabilistico;
 	}
@@ -20,7 +21,6 @@ public class ImpostoPessoaColetiva extends Imposto{
 
 	@Override
 	public float calcularImposto() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 0.25f * (lucroContabilistico - despensasDedutiveis);
 	}
 }
