@@ -1,5 +1,7 @@
 package gestaoimpostos;
 
+import java.util.ArrayList;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -63,7 +65,13 @@ public class Principal {
 		System.out.println();
 
 		System.out.println("8.Listar os contribuintes com estado civil solteiro.");
-
+		ArrayList<PessoaSingular> pessoasSingularesSolteiras = dgi.obterPessoasSingularesSolteiras();
+		for (PessoaSingular ps : pessoasSingularesSolteiras) {
+			System.out.printf("\tNome: %s\n\tNIF: %d\n\tEstado Civil: %s\n", ps.getNome(),ps.getNif(), ps.getEstadoCivil());
+			System.out.println();
+		}
+		
+		
 		System.out.println("9.Mostrar o total de impostos que foram aplicados as pessoas coletivas que exercem uma determinada atividade.");
 
 	}

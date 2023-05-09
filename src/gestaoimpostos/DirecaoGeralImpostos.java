@@ -105,14 +105,24 @@ public class DirecaoGeralImpostos {
 		return maiorImposto.getContribuinte();
 	}
 	//Funcionalidade 7 do Grupo 2.
-	public Imposto obterImposto(int ano, int nif) {		
-	
+	public Imposto obterImposto(int ano, int nif) {			
 		for (Imposto imposto : impostos) {
 			if(imposto.getAno() == ano && imposto.getContribuinte().getNif() == nif) {
 				return imposto;
 			}			
 		}
 		return null;
+	}
+	//Funcionalidad 8 do Grupo 2. 
+	public ArrayList<PessoaSingular> obterPessoasSingularesSolteiras(){
+		ArrayList<PessoaSingular> pessoasSingulares = new ArrayList<>();
+		for (Contribuinte contribuinte : contribuintes) {
+			if (contribuinte instanceof PessoaSingular ps && ps.getEstadoCivil().equals(EstadoCivil.SORLTEIRO)) {
+				pessoasSingulares.add(ps);
+
+			}
+		}
+		return pessoasSingulares;
 	}
 	private void populate() {	
 		
@@ -207,7 +217,7 @@ public class DirecaoGeralImpostos {
 		addImpostoPessoaSingular(2021, 7540000, 340000, 182583969);
 		addImpostoPessoaSingular(2022, 7540000, 340000, 182583969);
 		addImpostoPessoaSingular(2023, 7540000, 340000, 182583969);
-		addPessoaSingular("Mario Gonsales", 152583356, EstadoCivil.CASADO,"19990123M1882");
+		addPessoaSingular("Mario Gonsales", 152583356, EstadoCivil.SORLTEIRO,"19990123M1882");
 		addImpostoPessoaSingular(2018, 3420000, 150000, 152583356);
 		addImpostoPessoaSingular(2019, 3420000, 150000, 152583356);
 		addImpostoPessoaSingular(2020, 3420000, 150000, 152583356);
@@ -221,7 +231,7 @@ public class DirecaoGeralImpostos {
 		addImpostoPessoaSingular(2021, 320000, 110000, 192883353);
 		addImpostoPessoaSingular(2022, 320000, 110000, 192883353);
 		addImpostoPessoaSingular(2023, 320000, 110000, 192883353);
-		addPessoaSingular("Jose da Luz", 128533983, EstadoCivil.CASADO,"19931121M1273");
+		addPessoaSingular("Jose da Luz", 128533983, EstadoCivil.SORLTEIRO,"19931121M1273");
 		addImpostoPessoaSingular(2018, 212000, 100000, 128533983);
 		addImpostoPessoaSingular(2019, 212000, 100000, 128533983);
 		addImpostoPessoaSingular(2020, 212000, 100000, 128533983);
