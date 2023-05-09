@@ -73,7 +73,7 @@ public class Principal {
 		
 		
 		System.out.println("9.Mostrar o total de impostos que foram aplicados as pessoas coletivas que exercem uma determinada atividade.");
-
+		System.out.printf("Total impostos do setor Turistico: %.2f", dgi.totalImpostosPessoaCotetiva(Atividade.TURISMO));
 	}
 
 }

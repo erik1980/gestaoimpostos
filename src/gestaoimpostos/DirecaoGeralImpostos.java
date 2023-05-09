@@ -124,6 +124,18 @@ public class DirecaoGeralImpostos {
 		}
 		return pessoasSingulares;
 	}
+	//Funcionalidade 9 do Grupo 2.
+	public float totalImpostosPessoaCotetiva(Atividade atividade) {
+		float total = 0;
+		for (Imposto imposto : impostos) {
+			if(imposto.getContribuinte() instanceof PessoaColetiva pc && pc.getAtividadePrincipal().equals(atividade)) {			
+				total += imposto.calcularImposto();
+				
+			}
+		}
+		return total;
+		
+	}
 	private void populate() {	
 		
 		addPessoaColetiva("Frescomar",138529349,Atividade.INDUSTRIA);
