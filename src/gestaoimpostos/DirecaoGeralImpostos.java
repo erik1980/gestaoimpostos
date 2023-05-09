@@ -82,6 +82,28 @@ public class DirecaoGeralImpostos {
 		}
 		return pessoasColetivas;
 	}
+	//Funcionalidade 6 do Grupo 2.
+	private ArrayList<ImpostoPessoaColetiva> obterImpostosPessoaColetiva(int ano){
+		ArrayList<ImpostoPessoaColetiva> listaImpostosPessoasColetivas= new ArrayList<>();
+		for (Imposto imposto : impostos) {
+			if(imposto.getAno() == ano && imposto instanceof ImpostoPessoaColetiva ipc) {
+				listaImpostosPessoasColetivas.add(ipc);
+				
+			}			
+		}
+		return listaImpostosPessoasColetivas;
+	}
+	//Funcionalidade 6 do Grupo 2.
+	public Contribuinte obterPessoaCotetivaMaiorImposto(int ano) {
+		ArrayList<ImpostoPessoaColetiva> listaImpostosPessoasColetivas = obterImpostosPessoaColetiva(ano);
+		ImpostoPessoaColetiva maiorImposto = listaImpostosPessoasColetivas.get(0);
+		for (int i = 1; i < listaImpostosPessoasColetivas.size(); i++) {
+			if(maiorImposto.calcularImposto() < listaImpostosPessoasColetivas.get(i).calcularImposto()) {
+				maiorImposto = listaImpostosPessoasColetivas.get(i);
+			}			
+		}
+		return maiorImposto.getContribuinte();
+	}
 	
 	private void populate() {	
 		
