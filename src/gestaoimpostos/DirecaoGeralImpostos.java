@@ -104,7 +104,16 @@ public class DirecaoGeralImpostos {
 		}
 		return maiorImposto.getContribuinte();
 	}
+	//Funcionalidade 7 do Grupo 2.
+	public Imposto obterImposto(int ano, int nif) {		
 	
+		for (Imposto imposto : impostos) {
+			if(imposto.getAno() == ano && imposto.getContribuinte().getNif() == nif) {
+				return imposto;
+			}			
+		}
+		return null;
+	}
 	private void populate() {	
 		
 		addPessoaColetiva("Frescomar",138529349,Atividade.INDUSTRIA);

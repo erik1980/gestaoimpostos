@@ -53,6 +53,14 @@ public class Principal {
 		System.out.println();
 		
 		System.out.println("7.Mostrar o imposto de um contribuinte em um determinado ano.");
+		System.out.println("\tNIF: 182583969\n\tAno: 2019");		
+		Imposto imposto = dgi.obterImposto(2019, 182583969);	
+		if(imposto !=null) {
+			System.out.printf("\tImposto: %.2f", imposto.calcularImposto());
+		}else {
+			System.out.print("Não foi emcontrado imposto para esse contribuinte nesse ano.");
+		}
+		System.out.println();
 
 		System.out.println("8.Listar os contribuintes com estado civil solteiro.");
 
